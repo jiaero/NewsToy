@@ -82,9 +82,7 @@ div {
   }
 
   .articleBoxs {
-    /* border: 1px solid black;
-    width: 200px;
-    float: left; */
+    border: 1px solid black;
     width: 400px;
     border-radius: 22px;
     display: inline-block;

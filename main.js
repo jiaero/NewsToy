@@ -10,7 +10,6 @@ let newsArticle = [];
 let clippedArticle = [];
 
 
-
 function hideHistory() {
     resultBoxs.classList.add("hidden");
 }
@@ -63,29 +62,55 @@ function fetchData(name) {
     .then((data) => { 
         console.log(data);
         newsArticle.push(...data.response.docs)
-        createArticleEl() }
-        )}
+        createArticleEl();
+    })
+}
         
-        function createArticleEl() {
-            
-            for (let i = 0; i < newsArticle.length; i++){
-                
-                const userInfo = document.createElement("div");
-                userInfo.innerHTML = 
-                `<div class="articleBoxs">
-                <a class="headlineColor" href="${newsArticle[i].web_url}"><div class="headline">${newsArticle[i].headline.main}</div></a>
-                <div class="pub_date">${newsArticle[i].pub_date}</div>
-                <button class="clipbtn">Clip this 🤍</button>
-                <a href="${newsArticle[i].web_url}"><button>See Detail 💬</button></a>
-                </div>
-                `
-                articlesEl.appendChild(userInfo);
+function createArticleEl() {
+    
+    for (let i = 0; i < newsArticle.length; i++){
+        
+        const userInfo = document.createElement("div");
+        userInfo.innerHTML = 
+        `<div class="articleBoxs">
+        <a class="headlineColor" href="${newsArticle[i].web_url}"><div class="headline">${newsArticle[i].headline.main}</div></a>
+        <div class="pub_date">${newsArticle[i].pub_date}</div>
+        <button class="clipbtn">Clip this 🤍</button>
+        <a href="${newsArticle[i].web_url}"><button>See Detail 💬</button></a>
+        </div>
+        `
+        articlesEl.appendChild(userInfo);
+    }
+    
+    clipAdd();
+    checkClipList();
+}
 
-                const clipbtn = document.querySelector(".clipbtn");
-                clipbtn.addEventListener("click", (e) =>{console.log(e.target);})
-            }
-        }
+function clipAdd(){
+    const articlesEl = document.querySelector(".articles");
+    articlesEl.addEventListener("click", (e) => {
+    clippedArticle.push(e.target.parentNode);
+    console.log(e.target.parentNode);
+    })
+}
+
+function checkClipList() {
+    const clipBtnEl = document.querySelector("#clip_btn"); 
+    clipBtnEl.addEventListener("click",()=>{
         
-        inputEl.addEventListener('keypress',getValue);
-        inputEl.addEventListener('focus', showHistory);
-        inputEl.addEventListener('blur', hideHistory);
+        const articlesEl = document.querySelector(".articles");
+
+        // reset
+        for(let i =0; i < articlesEl.children.length; i++){
+            articlesEl.children[i].innerHTML = "";
+        }
+
+        for(let i =0; i < clippedArticle.length; i++){
+            articlesEl.appendChild(clippedArticle[i]);
+        }
+    });
+}
+
+inputEl.addEventListener('keypress',getValue);
+inputEl.addEventListener('focus', showHistory);
+inputEl.addEventListener('blur', hideHistory);
