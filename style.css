@@ -1,0 +1,122 @@
+body {
+    background-color: lemonchiffon;
+  }
+  h1 {
+    text-align: center;
+  }
+
+div {
+    padding: 5px;
+    margin-bottom: 10px;
+    text-align: center;
+    display: -ms-inline-grid;
+    font-size: 14px;
+}
+
+  input {
+    width: 450px;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    padding: 7px;
+    color: black;
+    border-radius: 20px;
+    border: 2px solid burlywood;
+    background-color: burlywood;
+  }
+
+  input::placeholder {
+    color: black;
+  }
+
+  input:focus {
+    outline:2px solid burlywood;}
+
+  #clip_btn {
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    background-color: black;
+    padding: 10px auto;
+    border: 2.5px solid burlywood;
+    font-size: 10px;
+    color: aliceblue;
+    height: 63px;
+    width: 90px;
+    -moz-border-radius: 90px 90px 0 0;
+    -webkit-border-radius: 90px 90px 0 0;
+    border-radius: 90px 90px 0 0;
+  }
+
+  button {
+    border-radius: 15px;
+    border: 2px solid black;
+    display: inline-block;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    background-color: black;
+    font-size: 10px;
+    color: aliceblue;
+    text-align: center;
+  }
+
+  .userInfo {
+    border: 2px solid burlywood;
+    border-radius: 10px;
+    width: 450px;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+    padding: 7px;
+    color: black;
+    font-size: 10px;
+  }
+
+  .resultBox {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .articleBoxs {
+    /* border: 1px solid black;
+    width: 200px;
+    float: left; */
+    width: 400px;
+    border-radius: 22px;
+    display: inline-block;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    margin: 0;
+    margin-bottom: 15px;
+    padding: 10px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+  }
+
+.headlineColor {
+  color: black;
+}
+
+  .hidden {
+    display: none;
+  }
+
+  .word {
+    font-size: 9px;
+    background-color: black;
+    margin: 5px;
+    color: bisque;
+    border-radius: 50%;
+    padding: 9px;
+  }
+
+  .headline {
+    font-size: 154x;
+  }
+
+  .pub_date {
+    font-size: 13px;
+    border-radius: 10px;
+  }
