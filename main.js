@@ -1,4 +1,4 @@
-const MYAPI = "N64ks9nvefpqHGwcmHYALqQM3kiBJESC"
+const MYAPI = ""
 const inputEl = document.getElementById("searchValue");
 const articlesEl = document.querySelector(".articles");
 const resultBoxs = document.querySelector(".resultBox");
@@ -8,7 +8,6 @@ let inputVal;
 let saveInputVal = [];
 let newsArticle = [];
 let clippedArticle = [];
-
 
 function hideHistory() {
     resultBoxs.classList.add("hidden");
@@ -72,16 +71,17 @@ function createArticleEl() {
         
         const userInfo = document.createElement("div");
         userInfo.innerHTML = 
-        `<div class="articleBoxs">
-        <a class="headlineColor" href="${newsArticle[i].web_url}"><div class="headline">${newsArticle[i].headline.main}</div></a>
+        `
+        <div class="articleBoxs">
+        <a class="headlineColor" href="${newsArticle[i].web_url}">
+        <div class="headline">${newsArticle[i].headline.main}</div></a>
         <div class="pub_date">${newsArticle[i].pub_date}</div>
-        <button class="clipbtn">Clip this 🤍</button>
+        <button class="clipbtn">Clip this 📩</button>
         <a href="${newsArticle[i].web_url}"><button>See Detail 💬</button></a>
         </div>
         `
         articlesEl.appendChild(userInfo);
     }
-    
     clipAdd();
     checkClipList();
 }
@@ -90,7 +90,6 @@ function clipAdd(){
     const articlesEl = document.querySelector(".articles");
     articlesEl.addEventListener("click", (e) => {
     clippedArticle.push(e.target.parentNode);
-    console.log(e.target.parentNode);
     })
 }
 
@@ -103,11 +102,13 @@ function checkClipList() {
         // reset
         for(let i =0; i < articlesEl.children.length; i++){
             articlesEl.children[i].innerHTML = "";
+            // clipBtnEl.innerText = " Back ✨";
         }
-
+        
         for(let i =0; i < clippedArticle.length; i++){
             articlesEl.appendChild(clippedArticle[i]);
         }
+
     });
 }
 
